@@ -12,6 +12,7 @@ coverage
 .next/
 out/
 build
+.vscode
 
 # misc
 .DS_Store
@@ -30,4 +31,20 @@ yarn-error.log*
 .env.production.local
 
 # turbo
-.turbo
+.
+
+# backend
+**/node_modules
+**/.env
+**/dist
+
+
+# production
+/build
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
