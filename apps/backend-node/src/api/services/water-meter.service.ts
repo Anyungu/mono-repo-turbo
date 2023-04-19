@@ -1,6 +1,6 @@
 import { Point } from "@influxdata/influxdb-client";
 import { influxContext } from "../../configs/influx-db-conntect";
-import { WaterMeterDecoded } from "../../moidels/water-meter";
+import { WaterMeterDecoded } from "../../models/water-meter";
 import { decodeBecoXWater } from "../../utils/bove";
 
 
@@ -13,13 +13,12 @@ const saveInfluxWaterData = (data: WaterMeterDecoded) => {
     .stringField("payload", data.payload)
     .tag("device", data.device)
 
-  console.log(newDataPoint)
 
+
+  //add all alarms
   Object.entries(data.alarms).forEach(([key, value]) => {
     newDataPoint.booleanField(key, value)
   })
-
-  console.log(newDataPoint)
 
   influxContext().writeApi.writePoint(newDataPoint)
 };
@@ -28,7 +27,6 @@ const saveInfluxWaterData = (data: WaterMeterDecoded) => {
 export const handleWaterMeterdata = (data: string, device: string) => {
 
   const decoded: WaterMeterDecoded = decodeBecoXWater(data, device)
-  console.log(decoded)
   saveInfluxWaterData(decoded)
 
 }

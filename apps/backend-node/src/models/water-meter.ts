@@ -4,5 +4,4 @@ export interface WaterMeterDecoded {
     payload: string;
     alarms: { [key: string]: boolean; }
 
-
 }

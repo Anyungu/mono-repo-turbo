@@ -5,7 +5,7 @@ import {
     BOVE_LENGTH,
     BOVE_START_CONSTANT
 } from "../configs/bove"
-import { WaterMeterDecoded } from "../moidels/water-meter";
+import { WaterMeterDecoded } from "../models/water-meter";
 
 
 

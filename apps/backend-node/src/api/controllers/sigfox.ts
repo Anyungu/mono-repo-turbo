@@ -6,5 +6,5 @@ export const logSigfoxData = (req: any, res: any) => {
 
     handleWaterMeterdata(data, device)
 
-    return res.json({ message: "Song Record Created Successfully" });
+    return res.json({ message: "Data received" });
 }
